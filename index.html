@@ -13,7 +13,7 @@
 
   <!-- typed.js library for typing animation. -->
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-
+  <script src="https://kit.fontawesome.com/e23a98c840.js" crossorigin="anonymous"></script>
 </head>
 
 <body onload="setActive()">
@@ -31,8 +31,6 @@
 
       if (weather_element) {
         weather_element.innerHTML = `<h2>${Math.round(temp)}°C in Singapore</h2>`;
-      } else {
-        weather_element.innerHTML = "Loading weather...";
       }
     })();
     const setActive = () => {
@@ -77,7 +75,9 @@
       );
     }
   </script> -->
-
+  <div id="website-overlay" class="overlay">
+    <div id="website-modal" class="modal"></div>
+  </div>
   <nav>
     <div id="inset">
       <a onclick = setActive() class="active navlink" href="#hero">Home</a>
@@ -135,13 +135,118 @@
         </ul>
       </div>
       <div class="contentright">
-        <iframe title="Discord user embed" width="410" height="210" frameborder="0" sandbox=""
+        <iframe data-tilt title="Discord user embed" width="410" height="210" frameborder="0" sandbox=""
           style="overflow-y:hidden; overflow-x:scroll;" src=" https://lanyard.cnrad.dev/api/413331641109446656">
         </iframe>
       </div>
     </div>
 
     <h1 class="gradient" id="projects">Projects</h1>
+    
+    <div id="cardholder">
+       <!-- https://www.youtube.com/watch?v=joDhIH6Xumw following Hyperplexed tutorial for cards.-->
+      <div class="card data-tilt" data-tilt>
+        <div class="card-content">
+          <h3 class="card-title">Coffier</h3>
+          <h4 class="card-subtitle"></h4>
+        </div>
+        <i onclick = coffierModal() class="fa-solid fa-info-circle card-icon"></i>
+      </div>
+
+      <div class="card" data-tilt>
+        <div class="card-content">
+          <h3 class="card-title">ESGS</h3>
+          <h4 class="card-subtitle"></h4>
+        </div>
+        <i onclick = esgsModal() class="fa-solid fa-info-circle card-icon"></i>
+      </div>
+
+      <div class="card" data-tilt>
+        <div class="card-content">
+          <h3 class="card-title">Uncanny Guessr</h3>
+          <h4 class="card-subtitle"></h4>
+        </div>
+        <i onclick = guessrModal() class="fa-solid fa-info-circle card-icon"></i>
+      </div>
+
+      <div class="card" data-tilt>
+        <div class="card-content">
+          <h3 class="card-title">This website</h3>
+          <h4 class="card-subtitle"></h4>
+        </div>
+        <i onclick = websiteModal() class="fa-solid fa-info-circle card-icon"></i>
+      </div>
+
+      <script>
+        const websiteModal = () => {
+          console.log("hi")
+        }
+
+        const guessrModal = () => {
+          console.log("uncanny")
+        }
+
+        const esgsModal = () => {
+          console.log("every school good school")
+        }
+
+        const coffierModal = () => {
+          console.log("i need coffee")
+        }
+
+        var subtitle = document.getElementsByClassName("card-subtitle")[0];
+        var createWord = (text, index) => {
+          var word = document.createElement("span");
+          word.innerHTML = `${text}`;
+          word.classList.add("card-subtitle-word");
+          word.style.transitionDelay = `${index * 40}ms`;
+          return word;
+        }
+
+        var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
+        var createSubtitle = text => text.split(" ").map(addWord);
+        createSubtitle("Created with others during Hack & Roll 2023. Timer app for brewing hard-to-brew coffees (V20, Aeropress)", 0);
+
+        var subtitle = document.getElementsByClassName("card-subtitle")[1];
+        var createWord = (text, index) => {
+          var word = document.createElement("span");
+          word.innerHTML = `${text}`;
+          word.classList.add("card-subtitle-word");
+          word.style.transitionDelay = `${index * 40}ms`;
+          return word;
+        }
+
+        var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
+        var createSubtitle = text => text.split(" ").map(addWord);
+        createSubtitle("Project for GeekOut 2023. Won 3rd. LMS system for JC", 0);
+
+        var subtitle = document.getElementsByClassName("card-subtitle")[2];
+        var createWord = (text, index) => {
+          var word = document.createElement("span");
+          word.innerHTML = `${text}`;
+          word.classList.add("card-subtitle-word");
+          word.style.transitionDelay = `${index * 40}ms`;
+          return word;
+        }
+
+        var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
+        var createSubtitle = text => text.split(" ").map(addWord);
+        createSubtitle("Created with others during LCH 2022. Geoguessr clone with an uncanny meme.", 0);
+
+        var subtitle = document.getElementsByClassName("card-subtitle")[3];
+        var createWord = (text, index) => {
+          var word = document.createElement("span");
+          word.innerHTML = `${text}`;
+          word.classList.add("card-subtitle-word");
+          word.style.transitionDelay = `${index * 40}ms`;
+          return word;
+        }
+        var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
+        var createSubtitle = text => text.split(" ").map(addWord);
+        createSubtitle("Created for a school project in NYP.", 0);
+      </script>
+    </div>
+
     <h3>Jailbreak tweaks</h3>
         <div class="contentflexboxright">
             <div class="contentleft">
@@ -272,4 +377,6 @@
 <script src="js/heart.js"></script>
 <script src="js/particles.js"></script>
 
+  <!-- tilt effect library using vanillatilt.js -->
+  <script src="js/vanilla.min.js"></script>
 </html>
