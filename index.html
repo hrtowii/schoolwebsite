@@ -75,9 +75,38 @@
       );
     }
   </script> -->
-  <div id="website-overlay" class="overlay">
-    <div id="website-modal" class="modal"></div>
+  <div id="coffier-overlay" class="overlay">
+    <div id="website-modal" class="modal">
+      <div id="modal-header">
+        <h1>Coffier</h1>
+        <i onclick = coffierModal() class="fa-solid fa-xmark card-icon"></i>
+      </div>
+    </div>
   </div>
+
+  <div id="esgs-overlay" class="overlay">
+    <div id="website-modal" class="modal">
+      <div id="modal-header">
+        <h1>Coffier</h1>
+        <i onclick = esgsModal() class="fa-solid fa-xmark card-icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div id="guessr-overlay" class="overlay">
+    <div id="website-modal" class="modal">
+      <h1>Hello world</h1>
+      <i onclick = guessrModal() class="fa-solid fa-xmark card-icon"></i>
+    </div>
+  </div>
+
+  <div id="website-overlay" class="overlay">
+    <div id="website-modal" class="modal">
+      <h1>Hello world</h1>
+      <i onclick = websiteModal() class="fa-solid fa-xmark card-icon"></i>
+    </div>
+  </div>
+
   <nav>
     <div id="inset">
       <a onclick = setActive() class="active navlink" href="#hero">Home</a>
@@ -179,19 +208,47 @@
 
       <script>
         const websiteModal = () => {
-          console.log("hi")
+          const modal = document.getElementById('website-overlay')
+          if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+          } else {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+          }
         }
 
         const guessrModal = () => {
-          console.log("uncanny")
+          const modal = document.getElementById('guessr-overlay')
+          if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+          } else {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+          }
         }
 
         const esgsModal = () => {
-          console.log("every school good school")
+          const modal = document.getElementById('esgs-overlay')
+          if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+          } else {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+          }
         }
 
         const coffierModal = () => {
-          console.log("i need coffee")
+          const modal = document.getElementById('coffier-overlay')
+          if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+          } else {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+          }
         }
 
         var subtitle = document.getElementsByClassName("card-subtitle")[0];

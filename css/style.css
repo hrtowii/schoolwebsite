@@ -390,25 +390,35 @@ video {
 }
 
 .overlay {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.12s, opacity 0.12s ease-in;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100vh;
-  position: absolute;
-  background: rgba(17,17,27, 0.5);
-  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  background: rgba(17,17,27, 0.7);
+  backdrop-filter: blur(10px);
   z-index: 10;
 }
 
 .modal {
   top: 3%;
   position: relative;
-  max-width: 75vw;
+  max-width: 40vw;
   width: 100%;
-  height: 800px;
+  height: 700px;
   background-color: var(--background2);
   border-radius: 12px;
+  padding-inline: 2vw;
+}
+
+#modal-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 ::-webkit-scrollbar {
