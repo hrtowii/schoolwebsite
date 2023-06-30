@@ -1,0 +1,321 @@
+/* light mode */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: #dce0e8;
+  --background2: #e6e9ef;
+  --foreground: #4c4f69;
+  --date: #ea76cb;
+  --navbar: #e6e9ef;
+  --navsel: #dd7878;
+  --navhover: #dc8a78;
+  --link: #179299;
+  --linkhover: #40a02b;
+}
+
+/* dark mode*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #11111b;
+    --background2: #1e1e2e;
+    --foreground: rgba(205, 214, 244, 1);
+    --date: #f5c2e7;
+    --navbar: #1e1e2e;
+    --navsel: #ca9ee6;
+    --navhover: #cba6f7;
+    --link: var(--date);
+    --linkhover: #f5c2e7;
+  }
+}
+
+nav {
+  z-index: 999;
+  position: sticky;
+  top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  background-color: var(--background2);
+  overflow: hidden;
+}
+
+nav a {
+  color: var(--foreground);
+  display: inline-block;
+  padding: 16px 0.4vw 20px 0.4vw;
+  text-align: left;
+  font-family:  Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+}
+
+nav a:hover {
+  text-decoration-color: var(--foreground);
+  text-underline-offset: 0.35em;
+}
+
+nav a.active {
+  color: var(--link);
+  text-decoration-color: var(--link);
+  text-underline-offset: 0.35em;
+}
+
+#inset {
+  display: inline-block;
+  margin-left: 1vw;
+}
+
+a {
+  text-decoration: underline 0.1em rgba(205, 214, 244, 0.7);
+  text-underline-offset: 0.5em;
+  transition: color 300ms, text-decoration-color 300ms, text-underline-offset 300ms;
+}
+
+a:hover {
+  color: var(--link);
+  text-decoration-color: var(--linkhover);
+  text-underline-offset: 0.35em;
+}
+
+body {
+  background: var(--background);
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, span {
+  color: white;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.755rem;
+}
+
+a {
+  color: var(--link);
+  font-style: normal;
+  font-family:  Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+}
+
+li, p, span {
+  font-size: 1.25rem;
+}
+
+#canvas {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+  align-items: center;
+}
+
+canvas {
+  overflow-clip-margin: 100em;
+  overflow: visible;
+}
+
+#hero {
+  display: flex;
+  height: 100vh;
+  z-index: -1;
+  background: rgba(30,30,46, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.herocontent h1 {
+  font-size: 80px;
+  font-weight: 600;
+}
+
+.herocontent h1, h3 {
+  display: inline;
+}
+
+.herocontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+}
+
+.herotext {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+
+.gradient {
+  background: linear-gradient(-45deg, #f4dbd6, #f0c6c6, #f5bde6, #c6a0f6, #ed8796, #ee99a0, #f5a97f) no-repeat fixed center;
+  background-size: 300% 300%;
+	animation: gradient 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* https://stackoverflow.com/questions/40720838/particles-js-as-a-background */
+#particles-js canvas {
+  display: block;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+  transition: opacity .8s ease, transform 1.4s ease;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  left: 0;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+.content {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 10vw;
+}
+
+/* content alignment */
+.contentflexboxleft, .contentflexboxright {
+  /* picture on left */
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-block: 20px;
+}
+
+.contentleft,
+.contentright {
+  width: 50vw;
+  height: auto;
+  display: flex;
+  align-items: start;
+  margin-inline: 20px;
+}
+
+.contentleft {
+  justify-content: start;
+}
+
+.contentright {
+  justify-content: end;
+}
+
+.contentleft ul, .contentright ul {
+  padding: 0px;
+}
+
+img,
+iframe,
+video {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: scale-down;
+  z-index: 1;
+  border: 3px solid rgba(30,30,46, 1);
+  border-radius: 10px;
+}
+
+
+.blogpostbox {
+  border: 1.25px solid var(--foreground);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background-color: var(--background2);
+}
+
+.blogpost {
+  position: relative;
+  width: calc(100% - 16px);
+  height: 2.5rem;
+  padding: 8px;
+}
+
+.blogpost span {
+  font-size: 1rem;
+}
+
+.blogpost a {
+  color: var(--navhover);
+  font-size: 1.2rem;
+}
+
+.blogpost a:hover {
+  color: var(--date);
+}
+
+.date {
+  color: var(--date);
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+::-webkit-scrollbar {
+  width: 1.5em;
+  height: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 100vw;
+  margin-block: 3.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background2);
+  border: 0.35em solid var(--background);
+  border-radius: 100vw;
+}
+/* #blob {
+  position: absolute;
+  background: linear-gradient(-45deg, #f4dbd6, #f0c6c6, #f5bde6, #c6a0f6, #ed8796, #ee99a0, #f5a97f) no-repeat fixed center;
+  animation: rotate 20s infinite;
+  height: 250px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: -9;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  filter: blur(100px);
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+
+  50% {
+    scale: 1 1.5;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+} */

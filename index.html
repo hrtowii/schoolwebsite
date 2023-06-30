@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School assignment</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="js/particles.js"></script>
+
+  <!-- typed.js library for typing animation. -->
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+</head>
+
+<body onload="setActive()">
+  <!-- weather api using OpenWeatherMap -->
+  <script>
+    (async () => { // make sure fetching the api doesn't pause loading everything else
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Singapore&units=metric&appid=41b6209042da7f1c98fe40c26ecec6d3&lang=en`);
+      const data = await res.json();
+      console.log(data)
+      const temp = data.main.temp;
+
+      const weather_element = document.getElementById(`weather`);
+
+      if (weather_element) {
+        weather_element.innerHTML = `<h2>${Math.round(temp)}°C in Singapore</h2>`;
+      } else {
+        weather_element.innerHTML = "Loading weather...";
+      }
+    })();
+    const setActive = () => {
+      const navlinks = Array.prototype.slice.apply(document.getElementsByClassName('navlink'));
+      navlinks.forEach(element => { //loop through every element w/ the class navlink.
+        element.addEventListener('click', () => { // add click event
+          if (!element.classList.contains('active')) { // if clicked elemnt doesn't contain active,
+            navlinks.forEach(element => {
+              element.classList.remove('active'); // remove active from everything else
+            });
+            element.classList.add('active'); // then add active to the clicked element
+          }
+        });
+      });
+    }
+  </script>
+
+  <div id="particles-js"></div>
+  <!-- <div id="blob"></div>
+  <script>
+    const blob = document.getElementById("blob");
+    document.body.onpointermove = e => {
+      const { clientX, clientY } = event;
+      blob.animate(
+        {
+          left: `${clientX}px`,
+          top: `${clientY}px`
+        }, { duration: 3000, fill: "forwards" }
+      );
+    };
+    document.addEventListener('DOMMouseScroll', mouseScroll, false);
+
+    function mouseScroll(e) {
+      // e.clientX or e.pageX is available here.
+      console.log("scrolling...")
+      const { clientX, clientY } = event;
+      blob.animate(
+        {
+          left: `${clientX}px`,
+          top: `${clientY}px`
+        }, { duration: 3000, fill: "forwards" }
+      );
+    }
+  </script> -->
+
+  <nav>
+    <div id="inset">
+      <a onclick = setActive() class="active navlink" href="#hero">Home</a>
+      <a onclick = setActive() class="navlink" href="#projects">Projects</a>
+      <a onclick = setActive() class="navlink" href="#competitions">Competitions</a>
+      <a onclick = setActive() class="navlink" href="#blog">Blog</a>
+    </div>
+  </nav>
+  <div id="hero">
+    <div class="herocontent">
+      <div class="herotext">
+        <!-- ok i know this looks fucking stupid but i want to left align the text while centering the div so i have to wrap it around https://stackoverflow.com/questions/46569692/displaying-flexbox-centered-but-align-items-left-like-text-align-left-->
+
+        <span>
+          <h1>Hi, I'm </h1>
+          <h1 class="gradient">Lucas</h1>
+        </span>
+
+        <span id="weather"></span>
+
+        <span><h3>I am a </h3>
+          <span id="typing"></span>
+        </span>
+
+        <!--start animation for typing, using typed.js -->
+        <script>
+          var typed = new Typed('#typing', {
+            strings: ['<span><h3>coder</h3></span>', '<span><h3>osuer</h3></span>', '<span><h3>shitposter</h3></span>'],
+            typeSpeed: 40,
+            backSpeed: 50,
+            loop: true,
+            showCursor: false
+          });
+        </script>
+        
+      </div>
+    </div>
+    <div id="canvas"></div>
+  </div>
+
+  <div class="content">
+    <h1>Hello!</h1>
+    <h2>Who am I?</h2>
+    <p>I'm Lucas, a Singaporean Y1 student in NYP.</p>
+    <p>In my free time, I enjoy playing osu! and Honkai Star Rail, listening to music (especially jpop), and ricing my
+      phone and laptop (theming them and making them look cool).</p>
+    <h2>Fun facts about me:</h2>
+    <div class="contentflexboxleft">
+      <div class="contentleft">
+        <ul>
+          <li>I am currently learning React and Rust.</li>
+          <li>I use arch btw™ (well Asahi now)</li>
+          <li>I'm a Virgo, INTP, 6w5 if you care about that</li>
+          <a href="https://google.com">Hey</a>
+        </ul>
+      </div>
+      <div class="contentright">
+        <iframe title="Discord user embed" width="410" height="210" frameborder="0" sandbox=""
+          style="overflow-y:hidden; overflow-x:scroll;" src=" https://lanyard.cnrad.dev/api/413331641109446656">
+        </iframe>
+      </div>
+    </div>
+
+    <h1 class="gradient" id="projects">Projects</h1>
+    <h3>Jailbreak tweaks</h3>
+        <div class="contentflexboxright">
+            <div class="contentleft">
+                <ul>
+                    <p>I was introduced to jailbreaking my iPhone by my friend. Jailbreaking is the process of achieving
+                        root access to one's iPhone. </p>
+                    <p>As jailbreaking is extremely powerful, it also allows one to inject code into iOS, more
+                        colloquially known as "tweaks". </p>
+                    <p>This piqued my interest, and I've hence written my own tweak that allows folders to be nested.
+                    </p>
+                    <p>Download <a
+                            href="https://cdn.discordapp.com/attachments/688122301975363591/941965598353653760/com.htrowii.nestedfoldersarm64_1.0.0_iphoneos-arm.deb">here</a>
+                        (iPhone X and below) </p>
+                    <p>Download <a
+                            href="https://cdn.discordapp.com/attachments/688122301975363591/941965598575968256/com.htrowii.nestedfoldersarm64e_1.0.0_iphoneos-arm.deb">here</a>
+                        (iPhone Xs and above) </p>
+                  </ul>
+            </div>
+            <div class="contentright">
+                <video width="360" src="img/video.mp4" title="Nested folders" controls=""> No video support in this
+                    browser. </video>
+            </div>
+        </div>
+        <!-- <h3>mBot</h3>
+        <div class="contentflexboxleft">
+            <div class="contentleft">
+                <img src="img/mBot.png" title="Scratch Game" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></img>
+            </div>
+            <div class="contentright">
+                <ul>
+                    <p>Through my school's Applied Learning Programme, I learnt to use mBot and Arduino and how to
+                        programme a robot to complete basic obstacle courses. </p>
+                    <p>I coded the mBot to only follow black colored lines, and to turn automatically whenever it
+                        detected a wall. </p>
+                </ul>
+            </div>
+        </div> -->
+        <!-- <h3>Swift</h3>
+        <div class="contentflexboxright">
+            <div class="contentleft">
+                <ul>
+                    <p>I've always been intrigued by apps, and how they're coded for so many devices while maintaining
+                        user friendliness. </p>
+                    <p>Recently, since the Covid-19 Pandemic started, more and more apps have been released to aid
+                        people fare through tough times during lockdown by providing various goods/services (eg.
+                        Redmart, Carousell) </p>
+                    <p>Hence, I started to search up on what languages mobile apps are coded in, and came across Swift.
+                        Swift is the native language used in Apple iPhone applications. </p>
+                    <p>I've since learnt some basic Swift from Codecademy and am currently learning SwiftUI through "100
+                        Days of Swift(UI)" by Hacking with Swift. </p>
+                </ul>
+            </div>
+            <div class="contentright">
+                <img src="img/Swift.png" title="Swift"></img>
+            </div>
+        </div> -->
+        <h3>Python</h3>
+        <div class="contentflexboxleft">
+            <div class="contentleft">
+                <img src="img/Python.png" title="Python"></img>
+            </div>
+            <div class="contentright">
+                <ul>
+                    <p>Recently, I started to learn more in depth about programming, and have learnt more about classes,
+                        objects and inheritance. </p>
+                    <p>To test my knowledge, I've created a program that acts as a periodic table. You can add and
+                        remove elements, and can view an element by entering either its name, symbol, proton number, or
+                        atomic number. </p>
+                    <p><a href="https://raw.githubusercontent.com/hrtowii/Pythonstuff/main/PeriodicTable.py">Source</a>.
+                    </p>
+                </ul>
+            </div>
+        </div>
+
+        <h3>This website</h3>
+        <div class="contentflexboxright">
+            <div class="contentleft">
+                <ul>
+                    <p>Coding a website for my portfolio seemed like a fun challenge and project, as I have never used
+                        HTML or CSS ever before. </p>
+                    <p>Challenges that I faced while doing so were numerous, as I did not know how to use flexboxes or
+                        CSS while building a website. </p>
+                    <p>However, through looking through HTML and CSS tutorials found online, I've gained a much better
+                        understanding of how CSS and Javascript can be used to make websites. </p>
+                    <p>This website uses the catpuccin color scheme and supports mobile layout, as well as dark and
+                        light mode. </p>
+                </ul>
+            </div>
+            <div class="contentright">
+                <img src="img/Website.png" title="website!!!"></img>
+            </div>
+        </div>
+
+    <h1 class="gradient" id="competitions">Competitions</h1>
+
+
+    <h1 class="gradient" id="blog">Blog</h1>
+    <div class="blogpostbox">
+			<div class="blogpost">
+				<a href="blog/my-own-swift-notes.html">My own Swift notes</a><br>
+				<span class="date">21st December 2022</span>
+			</div>
+		</div>
+		<div class="blogpostbox">
+			<div class="blogpost">
+				<a href="blog/triple-boot.html">Installing triple boot on my laptop</a><br>
+				<span class="date">22nd December 2022</span>
+			</div>
+		</div>
+		<div class="blogpostbox">
+			<div class="blogpost">
+				<a href="blog/caml-file-theming.html">Theming CAML files on iOS</a><br>
+				<span class="date">6th April 2023</span>
+			</div>
+		</div>
+	</div>
+  </div>
+</body>
+<!-- using threejs to render a 3d heart animation. the 3d object is from CodePen. the code is not original, but I modified it for my use to not zoom in/out at all and to fit in half the screen -->
+<script src="js/three.min.js"></script>
+<script src="js/MeshSurfaceSampler.js"></script>
+<script src="js/TrackballControls.js"></script>
+<script src="js/simplex-noise.js"></script>
+<script src="js/OBJLoader.js"></script>
+<script src="js/gsap.min.js"></script>
+<script src="js/heart.js"></script>
+<script src="js/particles.js"></script>
+
+</html>
