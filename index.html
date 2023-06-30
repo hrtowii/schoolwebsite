@@ -20,10 +20,12 @@
   <!-- weather api using OpenWeatherMap -->
   <script>
     (async () => { // make sure fetching the api doesn't pause loading everything else
-      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Singapore&units=metric&appid=41b6209042da7f1c98fe40c26ecec6d3&lang=en`);
+      // const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Singapore&units=metric&appid=41b6209042da7f1c98fe40c26ecec6d3&lang=en`);
+      const res = await fetch('https://catfact.ninja/fact');
       const data = await res.json();
       console.log(data)
-      const temp = data.main.temp;
+      // const temp = data.main.temp;
+      const temp = data.fact;
 
       const weather_element = document.getElementById(`weather`);
 
