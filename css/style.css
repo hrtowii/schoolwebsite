@@ -245,41 +245,6 @@ video {
   border-radius: 10px;
 }
 
-
-.blogpostbox {
-  border: 1.25px solid var(--foreground);
-  border-radius: 12px;
-  margin-bottom: 10px;
-  background-color: var(--background2);
-}
-
-.blogpost {
-  position: relative;
-  width: calc(100% - 16px);
-  height: 2.5rem;
-  padding: 8px;
-}
-
-.blogpost span {
-  font-size: 1rem;
-}
-
-.blogpost a {
-  color: var(--navhover);
-  font-size: 1.2rem;
-}
-
-.blogpost a:hover {
-  color: var(--date);
-}
-
-.date {
-  color: var(--date);
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-}
-
 /* following Hyperplexed tutorial for card */
 
 #cardholder {
@@ -345,7 +310,7 @@ video {
   background-position: 0% 0%;
   background-size: 5vmin 5vmin;
   height: calc(100% - 10vmin);
-  padding: 5vmin;
+  padding: 4vmin;
   position: relative;
   transition: background-position 350ms ease;
   width: calc(100% - 10vmin);
@@ -381,18 +346,30 @@ video {
 .card-icon {
   bottom: 0px;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 6vmin;
+  font-size: 5vmin;
   left: 0px;
-  margin: 3vmin;
+  margin: 4vmin;
   position: absolute;
   transition: color 250ms ease;
   z-index: 2;
 }
 
+.card-cross {
+  top: 0px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 5vmin;
+  right: 0px;
+  margin: 4vmin;
+  position: absolute;
+  transition: color 250ms ease;
+  z-index: 2;
+}
+
+
 .overlay {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.12s ease-in, opacity 0.12s ease-in;
+  transition: height 0.12s ease, visibility 0.10s ease-in, opacity 0.12s ease-in;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -413,12 +390,69 @@ video {
   height: 700px;
   background-color: var(--background2);
   border-radius: 12px;
-  padding-inline: 2vw;
+  padding: 4vmin;
+  display:flex;
+  flex-direction: column;
 }
 
-#modal-header {
+.modal a /* button */ {
+  position: absolute;
+  bottom: 4vmin;
+  left: 4vmin;
+  padding: 14px 16px 14px 16px;
+  border-radius: 14px;
+  background-color: var(--foreground);
+  color: var(--background);
+  text-decoration: none;
+}
+
+.modal-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.blogpostbox {
+  border: 1.25px solid var(--foreground);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background-color: var(--background2);
+}
+
+.blogpost {
+  position: relative;
+  width: calc(100% - 16px);
+  height: 2.5rem;
+  padding: 8px;
+}
+
+.blogpost span {
+  font-size: 1rem;
+}
+
+.blogpost a {
+  color: var(--navhover);
+  font-size: 1.2rem;
+}
+
+.blogpost a:hover {
+  color: var(--date);
+}
+
+.date {
+  color: var(--date);
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
 }
 
 ::-webkit-scrollbar {

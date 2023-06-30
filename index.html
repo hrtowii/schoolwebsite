@@ -17,6 +17,56 @@
 </head>
 
 <body onload="setActive()">
+
+  <!-- card modal html. -->
+  <div id="coffier-overlay" class="overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Coffier</h2>
+        <i onclick=coffierModal() class="fa-solid fa-xmark card-cross"></i>
+      </div>
+    </div>
+  </div>
+
+  <div id="esgs-overlay" class="overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>ESGS (Every School Good School)</h2>
+        <i onclick=esgsModal() class="fa-solid fa-xmark card-cross"></i>
+      </div>
+      <p>Hey</p>
+    </div>
+  </div>
+
+  <div id="guessr-overlay" class="overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Uncanny Guessr</h2>
+        <i onclick=guessrModal() class="fa-solid fa-xmark card-cross"></i>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; width: 50%;">
+          <p>This website is a GeoGuessr clone.</p>
+          <p>It uses the google maps API</p>
+        </div>
+        <div style="display: flex; flex-direction: column; width: 50%;">
+          <img height=410px src="img/img1.webp"></img>
+        </div>
+        <a href="https://google.com">Link to download</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="website-overlay" class="overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Hello world</h2>
+        <i onclick=websiteModal() class="fa-solid fa-xmark card-cross"></i>
+      </div>
+    </div>
+  </div>
+  </div>
+
   <!-- weather api using OpenWeatherMap -->
   <script>
     (async () => { // make sure fetching the api doesn't pause loading everything else
@@ -177,41 +227,7 @@
       </div>
     </div>
 
-    <!-- card modal html. -->
-    <div id="coffier-overlay" class="overlay">
-      <div id="website-modal" class="modal">
-        <div id="modal-header">
-          <h1>Coffier</h1>
-          <i onclick=coffierModal() class="fa-solid fa-xmark card-icon"></i>
-        </div>
-      </div>
-    </div>
-
-    <div id="esgs-overlay" class="overlay">
-      <div id="website-modal" class="modal">
-        <div id="modal-header">
-          <h1>Coffier</h1>
-          <i onclick=esgsModal() class="fa-solid fa-xmark card-icon"></i>
-        </div>
-      </div>
-    </div>
-
-    <div id="guessr-overlay" class="overlay">
-      <div id="website-modal" class="modal">
-        <h1>Hello world</h1>
-        <i onclick=guessrModal() class="fa-solid fa-xmark card-icon"></i>
-      </div>
-    </div>
-
-    <div id="website-overlay" class="overlay">
-      <div id="website-modal" class="modal">
-        <h1>Hello world</h1>
-        <i onclick=websiteModal() class="fa-solid fa-xmark card-icon"></i>
-      </div>
-    </div>
-
-
-    <!-- code that hides/shows the modal sheets. they are basically 0 height until clicked, then set to -10vh height when hidden-->
+    <!-- code that hides/shows the modal sheets. they are basically 0 height until clicked, then set to 0vh height when hidden-->
     <script>
       const websiteModal = () => {
         const modal = document.getElementById('website-overlay')
@@ -222,7 +238,7 @@
         } else {
           modal.style.visibility = 'hidden';
           modal.style.opacity = '0';
-          modal.style.height = '-10vh';
+          modal.style.height = '0';
         }
       }
 
@@ -235,7 +251,7 @@
         } else {
           modal.style.visibility = 'hidden';
           modal.style.opacity = '0';
-          modal.style.height = '-10vh';
+          modal.style.height = '0px';
         }
       }
 
@@ -248,7 +264,7 @@
         } else {
           modal.style.visibility = 'hidden';
           modal.style.opacity = '0';
-          modal.style.height = '-10vh';
+          modal.style.height = '0';
         }
       }
 
@@ -261,7 +277,7 @@
         } else {
           modal.style.visibility = 'hidden';
           modal.style.opacity = '0';
-          modal.style.height = '-10vh';
+          modal.style.height = '0';
         }
       }
 
@@ -291,14 +307,14 @@
 
       var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
       var createSubtitle = text => text.split(" ").map(addWord);
-      createSubtitle("Project for GeekOut 2023. Won 3rd. LMS system for JC", 0);
+      createSubtitle("Team submission for GeekOut 2023 that won 3rd place. Centralised LMS system for JC (Holy Grail for lectures + flashcards and data visualisation)", 0);
 
       var subtitle = document.getElementsByClassName("card-subtitle")[2];
       var createWord = (text, index) => {
         var word = document.createElement("span");
         word.innerHTML = `${text}`;
         word.classList.add("card-subtitle-word");
-        word.style.transitionDelay = `${index * 40}ms`;
+        word.style.transitionDelay = `${index * 30}ms`;
         return word;
       }
 
@@ -319,6 +335,7 @@
       createSubtitle("Created for a school project in NYP.", 0);
     </script>
 
+    <br>
     <h3>Jailbreak tweaks</h3>
     <div class="contentflexboxright">
       <div class="contentleft">
