@@ -500,7 +500,8 @@ pre { /* block of code similar to ```...``` in discord */
     font-size: 1.25rem;
   }
   p, li, span {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
+    line-height: 1.6rem;
   }
 }
 @media only screen and (max-width:767px) {

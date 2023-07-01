@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School assignment</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles.js"></script>
+    <script defer src="../js/particles.js"></script>
+</head>
+
+<body onload="setActive()">
+    <script>
+        const setActive = () => {
+            const navlinks = Array.prototype.slice.apply(document.getElementsByClassName('navlink'));
+            navlinks.forEach(element => { //loop through every element w/ the class navlink.
+                element.addEventListener('click', () => { // add click event
+                    if (!element.classList.contains('active')) { // if clicked elemnt doesn't contain active,
+                        navlinks.forEach(element => {
+                            element.classList.remove('active'); // remove active from everything else
+                        });
+                        element.classList.add('active'); // then add active to the clicked element
+                    }
+                });
+            });
+        }
+    </script>
+    <div id="particles-js"></div>
+    <nav>
+        <div id="inset">
+            <a onclick=setActive() class="navlink" href="../index.html#hero">Home</a>
+            <a onclick=setActive() class="navlink" href="../index.html#projects">Projects</a>
+            <a onclick=setActive() class="navlink" href="../index.html#competitions">Competitions</a>
+            <a onclick=setActive() class="active navlink" href="../index.html#blog">Blog</a>
+        </div>
+    </nav>
+    <div class="content">
+        <h1 class="gradient">My experience at GeekOut 2023</h1>
+        <h1>Introduction</h1>
+        <p>I was given the opportunity to join the yearly GeekOut bootcamp/hackathon event organised by GovTech during
+            my
+            June holidays. I wasn't sure what to expect from the event and was initially nervous, but I had a truly
+            eye-opening and fulfilling experience there and I learnt a lot about the recent innovations in GovTech that
+            are
+            helping Singapore become a smart nation. Not only that, but I also made many friends and gained valuable
+            insights into different tech fields such as fullstack, cybersec, data science and Unity through the
+            workshops
+            and talks at GeekOut over the course of five days.</p>
+        <h1>Meeting new people</h1>
+        <p>On the first day of the bootcamp, I was introduced to my group members (Euan, Jun Jie, Shriya, Su Hui, Wei
+            Jie)
+            and our mentor Jasmine. Through the ice-breaker games, we warmed up to each other more and got to know more
+            about everyone. In fact, it was kind of cool how each of us had their own background and strengths; some of
+            us
+            didn't have any coding background at all! Having a diverse range of strengths, not just limited to technical
+            skills, was really helpful in balancing the team.</p>
+        <p>During lunch, I walked around the room and introduced myself to other participants and GovTech employees. It
+            was
+            immediately obvious to me that almost all of them were older than me which was a little intimidating.
+            However,
+            talking to them and getting to know more about them eased my anxiety and helped me get to know them better.
+            By
+            the end of the first day, I'd loosened up a little and had warmed up to everyone around me.</p>
+        <h1>Workshops</h1>
+        <p>The workshops and talks that GovTech organised for us to go through throughout the course of the bootcamp
+            were
+            all really interesting and let me dip my toes in many fields in the tech industry.
+            We got the chance to learn how Unity is used to create apps for digital twin technology in Singapore, how
+            Figma,
+            React, and Node can be used to create full stack applications, and how Google Colab could be used to run ML
+            models online. </p>
+        <p>One aspect of tech that I've never really touched before was Cybersec. Through the talk by Jervin and
+            Pengfei, I
+            got to learn more about how red, blue, and purple teaming worked. I also learnt about how a Kubernetes
+            master
+            node could potentially be hacked, and how app obfuscation can be used both defensively (effectively
+            balancing
+            speed/size while maintaining as much security as possible) and offensively (crashing decompilers of those
+            who
+            try to reverse engineer how an app works). </p>
+        <p>Of course, every workshop was eye opening and I gained many new insights from this, even from stuff that I've
+            learnt before on my own.</p>
+        <h1>Hackathon</h1>
+        <p>On the 4th day of the bootcamp, we were briefed about our hackathon problem statement and tasked to develop a
+            solution to tackle it:</p>
+        <h3>Develop a smart city solution to improve quality of life for citizens while also enhancing the
+            sustainability of
+            the goal to move towards a smarter nation.</h3>
+        <p>We were given Thursday 12pm until Friday 11:30am to work on our solution, and had to submit it by 11:30am on
+            Friday. It was quite a tight timeframe, especially because the space we were working at would close by 7pm.
+        </p>
+        <p>What the guidelines of the hackathon were essentially:</p>
+        <ul>
+            <li>The solution designed should be accessible and user-friendly to citizens of all-ages, background and
+            technical
+            abilities.
+            <li>It’s highly encouraged to leverage existing datasets and APIs provided by the Government but are not
+            limited
+            to.
+            <li>Solutions are not limited to web or mobile applications. Prototypes done using figma, google slides or
+            canva
+            are fine as well.</ul>
+        <p>The submission format only needed us to upload slides to fulfil its requirements. Although technical
+            execution
+            was also taken into account, I feel that the hackathon mainly sought good ideas that addressed the problem,
+            demonstrated a solid understanding of it, and effectively used technology to provide a solution. </p>
+        <p>The thing about being in a government-organised hackathon is that there would usually be more policies
+            involved
+            instead of building whatever cool shit you come up with. We tried to follow as closely as possible to the
+            theme
+            of building something nation-wide for citizens that is also a smart city solution, and spent the afternoon
+            of
+            the first day throwing out ideas and seeing what stuck. We had a few false starts, such as Sustainability365
+            and
+            a navigation app for the blind. </p>
+        <p>In the end, we came up with an idea of a centralised lecture platform / learning management system for JC
+            students. If you've heard about Holy Grail before, imagine that but for lectures. If you haven't, it's
+            essentially a learning platform containing A-Level video lectures compiled and created by a group of
+            teachers
+            that are selected from every JC by MOE to do so every time the syllabus is updated. </p>
+        <h2>Suffering at night</h2>
+        <p>So we've come up with an idea. Now comes the time for us to create it; bring it to life. Since we only needed
+            a
+            slide deck (technically), we opted to not create the entire app because 1. only half the team knew how to
+            code
+            and 2. it would be much slower. Instead, we delegated tasks to each person based on their strengths; I did
+            the
+            Figma, Jun Jie created a Streamlit demo with CHATGPT, Euan created a video,</p>
+        <p>One of the most valuable aspects of the GeekOut Bootcamp was the chance to engage directly with GovTech’s
+            senior
+            leaders during the fireside chat where they shared about how GovTech has used tech for public good. These
+            sessions gave us a deeper understanding of the diverse tech domains within GovTech, such as cybersecurity,
+            data
+            science and artificial intelligence, and how they come together to address pressing societal challenges.</p>
+        <h1>AMA</h1>
+        <p>After the hackathon, we were given the chance to talk directly with some of GovTech's employees through the
+            Ask
+            Me Anything (AMA) session, where we got to know more about the different tech domains in GovTech and how
+            they're
+            used together to address nation-wide issues and build tech for public good (i feel like that's their
+            catchphrase). One thing that I was curious about was how working in the public sector was different from
+            working
+            in private sector. (eg. was there a LOT of bureaucracy involved? how is the pay like? (i know very subtle)).
+        </p>
+        <p>All in all, I feel like I gained a lot more info about what working in the government was like, and how
+            different
+            government sectors had different styles of working.</p>
+        <h1>Winning?!</h1>
+        <p>After the AMA session had concluded, it was obviously time for the part everyone was waiting for the most:
+            the
+            announcements for who won. The winning categories were split into 3 parts:</p>
+        <h1>Takeaways</h1>
+    </div>
+</body>
+
+</html>
