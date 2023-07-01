@@ -375,14 +375,11 @@ video {
 
 
 .overlay {
-  visibility: hidden;
-  opacity: 0;
-  transition: height 0.12s ease, visibility 0.10s ease-in, opacity 0.12s ease-in;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 0;
+  height: 100vh;
   position: sticky;
   top: 0;
   background: rgba(17,17,27, 0.7);
