@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School assignment</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles.js"></script>
+    <script defer src="../js/particles.js"></script>
+</head>
+
+<body onload="setActive()">
+    <script>
+        const setActive = () => {
+            const navlinks = Array.prototype.slice.apply(document.getElementsByClassName('navlink'));
+            navlinks.forEach(element => { //loop through every element w/ the class navlink.
+                element.addEventListener('click', () => { // add click event
+                    if (!element.classList.contains('active')) { // if clicked elemnt doesn't contain active,
+                        navlinks.forEach(element => {
+                            element.classList.remove('active'); // remove active from everything else
+                        });
+                        element.classList.add('active'); // then add active to the clicked element
+                    }
+                });
+            });
+        }
+    </script>
+    <div id="particles-js"></div>
+    <nav>
+        <div id="inset">
+            <a onclick=setActive() class="navlink" href="../index.html#hero">Home</a>
+            <a onclick=setActive() class="navlink" href="../index.html#projects">Projects</a>
+            <a onclick=setActive() class="navlink" href="../index.html#competitions">Competitions</a>
+            <a onclick=setActive() class="active navlink" href="../index.html#blog">Blog</a>
+        </div>
+    </nav>

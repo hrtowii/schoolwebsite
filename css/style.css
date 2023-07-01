@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:wght@300&display=swap');
 /* light mode */
 html {
   scroll-behavior: smooth;
@@ -110,7 +111,7 @@ a {
 }
 
 li, p, span {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 #canvas {
@@ -230,6 +231,12 @@ canvas {
   justify-content: end;
 }
 
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contentleft ul, .contentright ul {
   padding: 0px;
 }
@@ -237,7 +244,7 @@ canvas {
 img,
 iframe,
 video {
-  max-height: 100%;
+  max-height: 650px;
   max-width: 100%;
   object-fit: scale-down;
   z-index: 1;
@@ -255,7 +262,6 @@ video {
 .card {
   aspect-ratio: 1 / 1.6;
   border: 0.3vmin solid var(--link);
-  cursor: pointer;
   position: relative;
   width: 30vmin;
   border-radius: 1vw;
@@ -309,7 +315,7 @@ video {
   );
   background-position: 0% 0%;
   background-size: 5vmin 5vmin;
-  height: calc(100% - 10vmin);
+  height: calc(100% - 8vmin);
   padding: 4vmin;
   position: relative;
   transition: background-position 350ms ease;
@@ -352,6 +358,7 @@ video {
   position: absolute;
   transition: color 250ms ease;
   z-index: 2;
+  cursor: pointer;
 }
 
 .card-cross {
@@ -363,6 +370,7 @@ video {
   position: absolute;
   transition: color 250ms ease;
   z-index: 2;
+  cursor: pointer;
 }
 
 
@@ -391,8 +399,9 @@ video {
   background-color: var(--background2);
   border-radius: 12px;
   padding: 4vmin;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .modal a /* button */ {
@@ -418,7 +427,7 @@ video {
 
 .modal-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .blogpostbox {
@@ -454,6 +463,123 @@ video {
   bottom: 8px;
   right: 8px;
 }
+
+code {
+  display: relative;
+  font-family: 'Inconsolata';
+  color: var(--foreground);
+}
+
+pre { /* block of code similar to ```...``` in discord */
+  font-family: 'Inconsolata';
+  color: var(--foreground);
+  display: block;
+  border: 2px solid var(--foreground);
+  background-color: rgba(17,17,27, 0.3);
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+  padding: 20px;
+  white-space: pre-wrap;
+  font-size: 1.2rem;
+}
+
+.gridcardholder {
+  display: flex;
+  justify-content: center;
+  gap: 3.22vw;
+  margin-bottom: 3.22vw;
+}
+
+/* Responsiveness to phone screens */
+/* For really small mobile phones: */
+@media only screen and (max-width:568px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  p, li, span {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width:767px) {
+
+  .card {
+    width: 50%;
+    margin-inline: auto;
+    margin-bottom: 10px;
+  }
+  /* For mobile phones: */
+  .content {
+    font-size: 1.3rem;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+  .modal {
+    max-height: 70vh;
+    max-width: 70vw;
+  }
+  .contentflexboxleft {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+
+  .contentflexboxright {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .contentcenter {
+    width: 50vw;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .contentleft, .contentright {
+    justify-content: center;
+  }
+  .blogpost a {
+    font-size: 0.8rem;
+  }
+
+  .blogpost span {
+    font-size: 0.7rem;
+  }
+  
+  pre { /* block of code similar to ```...``` in discord */
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width:1024px) {
+
+  .contentright,
+  .contentleft,
+  .contentcenter {
+    width: 80vw;
+    margin: 0;
+    margin-bottom: 5vh;
+    margin-inline: 1.25vw;
+  }
+
+  #hero {
+    padding-inline: 13vw;
+  }
+  #canvas {
+    display: none;
+  }
+}
+
+@media only screen and (max-width:1366px) {
+  #cardholder {
+    flex-direction: column;
+  }
+}
+
 
 ::-webkit-scrollbar {
   width: 1.5em;

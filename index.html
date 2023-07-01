@@ -14,6 +14,22 @@
   <!-- typed.js library for typing animation. -->
   <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
   <script src="https://kit.fontawesome.com/e23a98c840.js" crossorigin="anonymous"></script>
+
+  <!-- defer tag means to load the js after body is loaded. learnt from fireship -->
+  <!-- using threejs to render a 3d heart animation. the 3d object is from CodePen. the code is not original, but I modified it for my use to not zoom in/out at all and to fit in half the screen -->
+  <script defer src="js/three.min.js"></script>
+  <script defer src="js/MeshSurfaceSampler.js"></script>
+  <script defer src="js/TrackballControls.js"></script>
+  <script defer src="js/simplex-noise.js"></script>
+  <script defer src="js/OBJLoader.js"></script>
+  <script defer src="js/gsap.min.js"></script>
+  <script defer src="js/heart.js"></script>
+  <script defer src="js/particles.js"></script>
+  
+  <!-- tilt effect library using vanillatilt.js -->
+  <script defer src="js/vanilla.min.js"></script>
+
+  <script defer src="js/cards.js"></script>
 </head>
 
 <body onload="setActive()">
@@ -45,11 +61,11 @@
         <i onclick=guessrModal() class="fa-solid fa-xmark card-cross"></i>
       </div>
       <div class="modal-body">
-        <div style="display: flex; flex-direction: column; width: 50%;">
+        <div style="width: 50%;">
           <p>This website is a GeoGuessr clone.</p>
           <p>It uses the google maps API</p>
         </div>
-        <div style="display: flex; flex-direction: column; width: 50%;">
+        <div style="width: 50%;">
           <img height=410px src="img/img1.webp"></img>
         </div>
         <a href="https://google.com">Link to download</a>
@@ -193,147 +209,46 @@
     <h1 class="gradient" id="projects">Projects</h1>
 
     <div id="cardholder">
-      <!-- https://www.youtube.com/watch?v=joDhIH6Xumw following Hyperplexed tutorial for cards.-->
-      <div class="card data-tilt" data-tilt>
-        <div class="card-content">
-          <h3 class="card-title">Coffier</h3>
-          <h4 class="card-subtitle"></h4>
+      <div class="gridcardholder">
+        <!-- https://www.youtube.com/watch?v=joDhIH6Xumw following Hyperplexed tutorial for cards.-->
+        <div class="card data-tilt" data-tilt>
+          <div class="card-content">
+            <h3 class="card-title">Coffier</h3>
+            <h4 class="card-subtitle"></h4>
+          </div>
+          <i onclick=coffierModal() class="fa-solid fa-info-circle card-icon"></i>
         </div>
-        <i onclick=coffierModal() class="fa-solid fa-info-circle card-icon"></i>
+
+        <div class="card" data-tilt>
+          <div class="card-content">
+            <h3 class="card-title">ESGS</h3>
+            <h4 class="card-subtitle"></h4>
+          </div>
+          <i onclick=esgsModal() class="fa-solid fa-info-circle card-icon"></i>
+        </div>
       </div>
 
-      <div class="card" data-tilt>
-        <div class="card-content">
-          <h3 class="card-title">ESGS</h3>
-          <h4 class="card-subtitle"></h4>
+      <div class="gridcardholder">
+        <div class="card" data-tilt>
+          <div class="card-content">
+            <h3 class="card-title">Uncanny Guessr</h3>
+            <h4 class="card-subtitle"></h4>
+          </div>
+          <i onclick=guessrModal() class="fa-solid fa-info-circle card-icon"></i>
         </div>
-        <i onclick=esgsModal() class="fa-solid fa-info-circle card-icon"></i>
-      </div>
 
-      <div class="card" data-tilt>
-        <div class="card-content">
-          <h3 class="card-title">Uncanny Guessr</h3>
-          <h4 class="card-subtitle"></h4>
+        <div class="card" data-tilt>
+          <div class="card-content">
+            <h3 class="card-title">This website</h3>
+            <h4 class="card-subtitle"></h4>
+          </div>
+          <i onclick=websiteModal() class="fa-solid fa-info-circle card-icon"></i>
         </div>
-        <i onclick=guessrModal() class="fa-solid fa-info-circle card-icon"></i>
-      </div>
-
-      <div class="card" data-tilt>
-        <div class="card-content">
-          <h3 class="card-title">This website</h3>
-          <h4 class="card-subtitle"></h4>
-        </div>
-        <i onclick=websiteModal() class="fa-solid fa-info-circle card-icon"></i>
       </div>
     </div>
 
     <!-- code that hides/shows the modal sheets. they are basically 0 height until clicked, then set to 0vh height when hidden-->
-    <script>
-      const websiteModal = () => {
-        const modal = document.getElementById('website-overlay')
-        if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
-          modal.style.height = '100vh'
-          modal.style.visibility = 'visible';
-          modal.style.opacity = '1';
-        } else {
-          modal.style.visibility = 'hidden';
-          modal.style.opacity = '0';
-          modal.style.height = '0';
-        }
-      }
-
-      const guessrModal = () => {
-        const modal = document.getElementById('guessr-overlay')
-        if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
-          modal.style.visibility = 'visible';
-          modal.style.opacity = '1';
-          modal.style.height = '100vh'
-        } else {
-          modal.style.visibility = 'hidden';
-          modal.style.opacity = '0';
-          modal.style.height = '0px';
-        }
-      }
-
-      const esgsModal = () => {
-        const modal = document.getElementById('esgs-overlay')
-        if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
-          modal.style.visibility = 'visible';
-          modal.style.opacity = '1';
-          modal.style.height = '100vh'
-        } else {
-          modal.style.visibility = 'hidden';
-          modal.style.opacity = '0';
-          modal.style.height = '0';
-        }
-      }
-
-      const coffierModal = () => {
-        const modal = document.getElementById('coffier-overlay')
-        if (modal.style.visibility == 'hidden' || modal.style.visibility == '') {
-          modal.style.visibility = 'visible';
-          modal.style.opacity = '1';
-          modal.style.height = '100vh'
-        } else {
-          modal.style.visibility = 'hidden';
-          modal.style.opacity = '0';
-          modal.style.height = '0';
-        }
-      }
-
-      var subtitle = document.getElementsByClassName("card-subtitle")[0];
-      var createWord = (text, index) => {
-        var word = document.createElement("span");
-        word.innerHTML = `${text}`;
-        word.classList.add("card-subtitle-word");
-        word.style.transitionDelay = `${index * 40}ms`;
-        return word;
-      }
-
-
-      // code that adds to the card subtitle text. repeated 4 times for each card (this is very inefficient)
-      var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
-      var createSubtitle = text => text.split(" ").map(addWord);
-      createSubtitle("Created with others during Hack & Roll 2023. Timer app for brewing hard-to-brew coffees (V20, Aeropress)", 0);
-
-      var subtitle = document.getElementsByClassName("card-subtitle")[1];
-      var createWord = (text, index) => {
-        var word = document.createElement("span");
-        word.innerHTML = `${text}`;
-        word.classList.add("card-subtitle-word");
-        word.style.transitionDelay = `${index * 40}ms`;
-        return word;
-      }
-
-      var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
-      var createSubtitle = text => text.split(" ").map(addWord);
-      createSubtitle("Team submission for GeekOut 2023 that won 3rd place. Centralised LMS system for JC (Holy Grail for lectures + flashcards and data visualisation)", 0);
-
-      var subtitle = document.getElementsByClassName("card-subtitle")[2];
-      var createWord = (text, index) => {
-        var word = document.createElement("span");
-        word.innerHTML = `${text}`;
-        word.classList.add("card-subtitle-word");
-        word.style.transitionDelay = `${index * 30}ms`;
-        return word;
-      }
-
-      var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
-      var createSubtitle = text => text.split(" ").map(addWord);
-      createSubtitle("Created with others during LCH 2022. Geoguessr clone with an uncanny meme.", 0);
-
-      var subtitle = document.getElementsByClassName("card-subtitle")[3];
-      var createWord = (text, index) => {
-        var word = document.createElement("span");
-        word.innerHTML = `${text}`;
-        word.classList.add("card-subtitle-word");
-        word.style.transitionDelay = `${index * 40}ms`;
-        return word;
-      }
-      var addWord = (text, index) => subtitle.appendChild(createWord(text, index));
-      var createSubtitle = text => text.split(" ").map(addWord);
-      createSubtitle("Created for a school project in NYP.", 0);
-    </script>
+    
 
     <br>
     <h3>Jailbreak tweaks</h3>
@@ -456,17 +371,5 @@
   </div>
   </div>
 </body>
-<!-- using threejs to render a 3d heart animation. the 3d object is from CodePen. the code is not original, but I modified it for my use to not zoom in/out at all and to fit in half the screen -->
-<script src="js/three.min.js"></script>
-<script src="js/MeshSurfaceSampler.js"></script>
-<script src="js/TrackballControls.js"></script>
-<script src="js/simplex-noise.js"></script>
-<script src="js/OBJLoader.js"></script>
-<script src="js/gsap.min.js"></script>
-<script src="js/heart.js"></script>
-<script src="js/particles.js"></script>
-
-<!-- tilt effect library using vanillatilt.js -->
-<script src="js/vanilla.min.js"></script>
 
 </html>
