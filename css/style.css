@@ -132,6 +132,7 @@ canvas {
   height: 100vh;
   z-index: -1;
   background: rgba(30,30,46, 0.2);
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 
@@ -383,6 +384,7 @@ video {
   position: sticky;
   top: 0;
   background: rgba(17,17,27, 0.7);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 10;
 }
@@ -473,6 +475,7 @@ pre { /* block of code similar to ```...``` in discord */
   display: block;
   border: 2px solid var(--foreground);
   background-color: rgba(17,17,27, 0.3);
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   border-radius: 12px;
   padding: 20px;
@@ -492,6 +495,9 @@ pre { /* block of code similar to ```...``` in discord */
 @media only screen and (max-width:568px) {
   h1 {
     font-size: 2rem;
+  }
+  .herotext h1 {
+    line-height: 5rem;
   }
   h2 {
     font-size: 1.5rem;
