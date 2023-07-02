@@ -4,7 +4,7 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
+/* :root {
   --background: #dce0e8;
   --background2: #e6e9ef;
   --foreground: #4c4f69;
@@ -14,10 +14,9 @@ html {
   --navhover: #dc8a78;
   --link: #179299;
   --linkhover: #40a02b;
-}
+} */
 
 /* dark mode*/
-@media (prefers-color-scheme: dark) {
   :root {
     --background: #11111b;
     --background2: #1e1e2e;
@@ -33,7 +32,6 @@ html {
     --g2: rgb(236, 64, 122);
     --g3: rgb(253, 216, 53);
   }
-}
 
 nav {
   z-index: 999;
@@ -328,17 +326,18 @@ video {
 .card-subtitle {
   color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 400;
   margin: 0px;
 }
 
 .card-title {
   font-size: 4vmin;
+  font-weight: 600;
 }
 
 .card-subtitle {
   font-size: 2vmin;
   margin-top: 2vmin;
+  font-weight: normal;
 }
 
 .card-subtitle-word {
@@ -509,9 +508,16 @@ pre { /* block of code similar to ```...``` in discord */
     font-size: 1.05rem;
     line-height: 1.6rem;
   }
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .card-subtitle-word {
+    font-size: 0.75rem;
+    line-height: 0.9rem;
+    font-weight:normal;
+  }
 }
 @media only screen and (max-width:767px) {
-
   .card {
     width: 50%;
     margin-inline: auto;
