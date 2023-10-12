@@ -85,7 +85,7 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, li, span {
+h1, h2, h3, h4, h5, h6, p, li, span, legend, placeholder, input {
   color: white;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -403,7 +403,7 @@ video {
 }
 
 .modal a /* button */ {
-  position: absolute;
+  position: sticky;
   bottom: 4vmin;
   left: 4vmin;
   padding: 14px 16px 14px 16px;
@@ -428,7 +428,7 @@ video {
   flex-direction: column;
 }
 
-.blogpostbox {
+.blogpostbox, fieldset, input {
   border: 1.25px solid var(--foreground);
   border-radius: 12px;
   margin-bottom: 10px;
@@ -606,6 +606,9 @@ pre { /* block of code similar to ```...``` in discord */
   background: var(--background2);
   border: 0.35em solid var(--background);
   border-radius: 100vw;
+}
+table {
+  color: white;
 }
 /* #blob {
   position: absolute;

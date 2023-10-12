@@ -41,6 +41,20 @@
         <h2>Coffier</h2>
         <i onclick= toggleModal('coffier-overlay') class="fa-solid fa-xmark card-cross"></i>
       </div>
+      <div class="modal-body">
+        <div style="width: 100%;">
+          <p>During January 2023, my friends and I developed a React Native app, Coffier.</p>
+          <p>Coffier is a minimalistic coffee timer that focuses on improving the user experience through reduced visual clutter so even beginners can make impressive pour-over coffee.</p>
+          <p>As a companion to James Hoffman's videos on his recipes for various methods of making coffee including v60 and Aeropress, conveniently embedded within our app, we are able to provide minimal instructions to reduce visual clutter.</p>
+        </div>
+        <a href="https://apkcombo.com/coffier/com.hnr2023.coffier/">Link to devpost</a>
+        <div style="width: 100%; display: flex; overflow-x: scroll;">
+          <img height=410px src="https://play-lh.googleusercontent.com/Hcyangc3wU6CFaWXqitVVtQLQK7W_VzUw_Fyq2a1vrbhvHjGG5UHJNcW-rmvN3cNDA=w1024-h768-rw"></img>
+          <img height=410px src="https://play-lh.googleusercontent.com/HqIkMwBTmzJQp9eVwTVemlcsgbFvKkQaatRgB2XvGpTprw2X3Za3MLr2IBMXAyEsa1o=w1024-h768-rw"></img>
+          <img height=410px src="https://play-lh.googleusercontent.com/jcYU6dq8k2D3LwGM1qOLVovL7xnXMD1SCfPE0hvGJvE3EqDekoLrQoLR83Xk4otEJsw=w1024-h768-rw"></img>
+          <img height=410px src="https://play-lh.googleusercontent.com/UiUSPtagzOX1RbuvDTWmNd2qLCP1VhPX1TPSjoehZMctNEYGb1cmlJgOImGhQ_kJ8ks=w1024-h768-rw"></img>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -50,7 +64,16 @@
         <h2>ESGS (Every School Good School)</h2>
         <i onclick= toggleModal('esgs-overlay') class="fa-solid fa-xmark card-cross"></i>
       </div>
-      <p>Hey</p>
+      <div class="modal-body">
+        <div style="width: 100%;">
+          <p>During the GeekOut hackathon/bootcamp hosted in June 2023, my teammates and I came up with this problem: Not every school is actually a good school. I know it sounds obvious, but inequality is rampant in every aspect of a student's schooling life, most notably the quality of education that they receive.</p>
+          <p>It uses the google maps API</p>
+        </div>
+        <div style="width: 100%;">
+          <img height=410px src="img/uncanny.png"></img>
+        </div>
+        <a href="https://google.com">Link to download</a>
+      </div>
     </div>
   </div>
 
@@ -61,23 +84,37 @@
         <i onclick= toggleModal('guessr-overlay') class="fa-solid fa-xmark card-cross"></i>
       </div>
       <div class="modal-body">
-        <div style="width: 50%;">
-          <p>This website is a GeoGuessr clone.</p>
-          <p>It uses the google maps API</p>
+        <div style="width: 100%;">
+          <p>This website is a GeoGuessr clone, but it's also uncanny! Cool, isn't it?.</p>
+          <p>It uses the google maps API.</p>
+          <p>It uses some JavaScript to check how far your picker distance is from the actual location distance, then is just a fancy if statement after that to display an image and play a sound depending on how far you are from the target.</p>
         </div>
-        <div style="width: 50%;">
-          <img height=410px src="img/img1.webp"></img>
+        <div style="width: 100%;">
+          <img height=410px src="img/uncanny.png"></img>
         </div>
-        <a href="https://google.com">Link to download</a>
       </div>
+      <a href="https://drive.google.com/u/0/uc?id=1bPfuPXFEqqdGZCgHO0AnZ8B2O7vNHm1c&export=download">Link to download</a>
     </div>
   </div>
 
   <div id="website-overlay" class="overlay">
     <div class="modal">
       <div class="modal-header">
-        <h2>Hello world</h2>
+        <h2>This website!</h2>
         <i onclick= toggleModal('website-overlay') class="fa-solid fa-xmark card-cross"></i>
+      </div>
+      <div class="modal-body">
+        <div style="width: 100%;">
+          <p>This website is created for my Web Development assignment in NYP.</p>
+          <p>It told us to make a frontend website with HTML, CSS, and JavaScript</p>
+          <p>I was unoriginal so I created this website, which is basically a v2 of my old one but rewritten from scratch to be better and cooler. Images of my old and new website are below</p>
+        </div>
+        <h3>Scroll</h3>
+        <div style="width: 100%; display: flex; overflow-x: scroll;">
+          <img height=410px width=80% src="img/Website.png"></img>
+          <img height=410px width=80% src="img/website2.png"></img>
+        </div>
+        <a href="https://github.com/hrtowii/schoolwebsite">Link to GitHub</a>
       </div>
     </div>
   </div>
@@ -374,6 +411,64 @@
         <span class="date">2nd July 2023</span>
       </div>
     </div>
+    <h1 class="gradient" id="contact">Contact</h1>
+    <p>Just leave your details in the form down below and I'll get back to you!</p>
+    <form method="get" action="FormProcessor.html">
+      <fieldset>
+        <legend>Personal Particulars</legend>
+        <span>Birth Date:</span> <input name="bdate" type="text" placeholder="dd/mm/yyyy"><br>
+        <span>Gender:</span><br>
+        <span>Male</span> <input name="gender" value="male" type="checkbox"><br>
+        <span>Female</span> <input name="gender" value="female" type="checkbox"><br>
+        <span>Diploma in:</span> <input type="text"><br>
+        <span>Email Address:</span> <input name="email" type="text" placeholder="dd/mm/yyyy"><br>
+        <span>Contact Number:</span> <input title="8 digits telephone number" name="contact" type="text" placeholder=""><br>
+      </fieldset>
+      <input type="submit">
+    </form>
+    <table>
+      <caption>
+        A summary of the UK's most famous punk bands
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Band</th>
+          <th scope="col">Year formed</th>
+          <th scope="col">No. of Albums</th>
+          <th scope="col">Most famous song</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Buzzcocks</th>
+          <td>1976</td>
+          <td>9</td>
+          <td>Ever fallen in love (with someone you shouldn't've)</td>
+        </tr>
+        <tr>
+          <th scope="row">The Clash</th>
+          <td>1976</td>
+          <td>6</td>
+          <td>London Calling</td>
+        </tr>
+    
+        <!-- several other great bands -->
+    
+        <tr>
+          <th scope="row">The Stranglers</th>
+          <td>1974</td>
+          <td>17</td>
+          <td>No More Heroes</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Total albums</th>
+          <td colspan="2">77</td>
+        </tr>
+      </tfoot>
+    </table>
+    
   </div>
   </div>
 </body>

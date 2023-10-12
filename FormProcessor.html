@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School assignment</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../js/particles.js"></script>
+    <script defer src="../js/particles.js"></script>
+</head>
+
+<body onload="setActive()">
+    <script>
+        const setActive = () => {
+            const navlinks = Array.prototype.slice.apply(document.getElementsByClassName('navlink'));
+            navlinks.forEach(element => { //loop through every element w/ the class navlink.
+                element.addEventListener('click', () => { // add click event
+                    if (!element.classList.contains('active')) { // if clicked elemnt doesn't contain active,
+                        navlinks.forEach(element => {
+                            element.classList.remove('active'); // remove active from everything else
+                        });
+                        element.classList.add('active'); // then add active to the clicked element
+                    }
+                });
+            });
+        }
+    </script>
+    <div id="particles-js"></div>
+    <nav>
+        <div id="inset">
+            <a onclick=setActive() class="navlink" href="../index.html#hero">Home</a>
+            <a onclick=setActive() class="navlink" href="../index.html#projects">Projects</a>
+            <a onclick=setActive() class="navlink" href="../index.html#competitions">Competitions</a>
+            <a onclick=setActive() class="active navlink" href="../index.html#blog">Blog</a>
+        </div>
+    </nav>
+<script type="text/javascript">
+
+var formData = location.search;
+formData = formData.substring(1, formData.length);
+while (formData.indexOf("+") != -1) {
+	formData = formData.replace("+", " ");
+}
+formData = unescape(formData);
+var formArray = formData.split("&");
+var para=new Array();
+var age,color,gender;
+
+function setGender(){
+     if (age>12){
+		if (gender=="boy") 
+			document.getElementById("gender").innerHTML="man";
+		else
+			document.getElementById("gender").innerHTML="woman";
+	}			
+}
+// STOP HIDING FROM INCOMPATIBLE BROWSERS -->
+</script>
+<article>
+<div id="formprocessor" class="content">
+    <h1 class="gradient">Confirmed!</h1>
+    <span>Got it. Your birthday is</span>
+    <span id="bdate" class="blank"></span>
+    <span>, you're</span>
+    <span id="age" class="blank"></span><span>years old, and you're a </span>
+    <span id="gender" class="blank"></span>
+    <span>person who's studying</span>
+    <span id="diploma" class="blank"></span></span><br>
+    <!-- <span id="activity" class="blank"></span><span> at</span>
+    <span id="location" class="blank"></span><span>.</span> -->
+    <span>I will call you at </span>
+    <span id="contact" class="blank"></span><span>,or write an email to you at</span>
+    <span id="email" class="blank"></span><span>.</span>
+    <!-- <span id="website" class="blank"></span> -->
+    
+</div>
+</article>
+<script>
+function convertDateFormat(inputDate) {
+  const parts = inputDate.split("/");
+  return parts[2] + "-" + parts[1] + "-" + parts[0];
+}
+
+for (var i = 0; i < formArray.length; ++i) {
+
+  para = formArray[i].split("=");
+
+  switch (para[0]) {
+    case "bdate":
+      const formattedDate = convertDateFormat(para[1]);
+      dd = new Date(formattedDate);
+      document.getElementById("bdate").innerHTML = dd.toDateString();
+      break;
+    case "age":
+      document.getElementById("age").innerHTML = para[1];
+      age = parseInt(para[1]);
+      break;
+    case "gender":
+      document.getElementById("gender").innerHTML = para[1];
+      gender = para[1];
+      break;
+    case "diploma":
+      document.getElementById("diploma").innerHTML = para[1];
+      break;
+    case "contact":
+      document.getElementById("contact").innerHTML = para[1];
+      break;
+    case "email":
+      document.getElementById("email").innerHTML = para[1];
+      break;
+  }
+
+}
+
+setGender();
+</script>
+</body>
+</html>
